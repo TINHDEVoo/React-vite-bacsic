@@ -11,9 +11,15 @@ const App = () => {
     age: 25
   }
 
+  const addNewTodo = (name) => {
+    alert(`call me ${name}`)
+  }
+
   return (
     <div className="todo-container">
-      <TodoNew />
+      <TodoNew
+        addNewTodo={addNewTodo}
+      />
       <TodoData
         name={name}
         age={age}
