@@ -3,20 +3,17 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+
+const Mycomponent = () => {
+  return (
+    <>
+      <h1>ahihi</h1>
+    </>
+  );
+}
+
 const App = () => {
   const [count, setCount] = useState(0)
-
-  // function myFunction() {
-  //   console.log(">> check my fun")
-  // }
-
-  const myFunction = () => {
-    console.log(">> check my fun")
-  }
-
-
-  myFunction();
-
 
   return (
     <>
@@ -40,6 +37,9 @@ const App = () => {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+
+      <Mycomponent />
     </>
   )
 }
