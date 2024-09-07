@@ -2,15 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
-
-const Mycomponent = () => {
-  return (
-    <>
-      <h1>ahihi</h1>
-    </>
-  );
-}
+import Mycomponent from './components/learn/MyComponents'
+import SecondComponent from './components/learn/secondComponents'
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -40,6 +33,7 @@ const App = () => {
 
 
       <Mycomponent />
+      <SecondComponent />
     </>
   )
 }
