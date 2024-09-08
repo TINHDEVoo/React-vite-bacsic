@@ -10,6 +10,7 @@ const TodoNew = (props) => {
 
     const hanleClick = () => {
         addNewTodo(valueInput)
+        setValueIpout("")
     }
     const hanleChange = (name) => {
         setValueIpout(name)
@@ -19,7 +20,9 @@ const TodoNew = (props) => {
             <label>Todo list</label>
             <div>
                 <input type="text"
-                    onChange={(event) => { hanleChange(event.target.value) }} />
+                    onChange={(event) => { hanleChange(event.target.value) }}
+                    value={valueInput}
+                />
                 <button style={{ cursor: "pointer" }}
                     onClick={hanleClick}>Add</button>
             </div>
