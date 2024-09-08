@@ -9,7 +9,7 @@ const TodoNew = (props) => {
     // addNewTodo("eric")
 
     const hanleClick = () => {
-        console.log(">> check valueInput ", valueInput)
+        addNewTodo(valueInput)
     }
     const hanleChange = (name) => {
         setValueIpout(name)
