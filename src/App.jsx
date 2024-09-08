@@ -8,13 +8,6 @@ const App = () => {
 
   const [todoList, setTodoList] = useState([])
 
-  const name = "ani"
-  const age = 15;
-  const address = {
-    name: "ab",
-    age: 25
-  }
-
   const addNewTodo = (name) => {
     const newTodo = {
       id: randomIntFromInterval(1, 100000),
@@ -30,15 +23,18 @@ const App = () => {
       <TodoNew
         addNewTodo={addNewTodo}
       />
-      <TodoData
-        name={name}
-        age={age}
-        address={address}
-        todoList={todoList}
-      />
-      <div className="todo-image">
-        <img src={logo} alt="" className='logo' />
-      </div>
+      {
+        todoList.length > 0 &&
+        <TodoData
+          todoList={todoList}
+        />
+      }
+      {
+        todoList.length === 0 &&
+        <div className="todo-image">
+          <img src={logo} alt="" className='logo' />
+        </div>
+      }
     </div>
   );
 }
