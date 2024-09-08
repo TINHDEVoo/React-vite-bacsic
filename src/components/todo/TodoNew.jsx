@@ -1,14 +1,18 @@
+import { useState } from "react";
 
 const TodoNew = (props) => {
+
+    const [valueInput, setValueIpout] = useState("");
+
     const { addNewTodo } = props;
 
     // addNewTodo("eric")
 
     const hanleClick = () => {
-        alert("Click me")
+        console.log(">> check valueInput ", valueInput)
     }
     const hanleChange = (name) => {
-        console.log(">> check hanleOnchange ", name)
+        setValueIpout(name)
     }
     return (
         <div className="todolist">
@@ -18,6 +22,9 @@ const TodoNew = (props) => {
                     onChange={(event) => { hanleChange(event.target.value) }} />
                 <button style={{ cursor: "pointer" }}
                     onClick={hanleClick}>Add</button>
+            </div>
+            <div>
+                My test input is = {valueInput}
             </div>
         </div>
     );
