@@ -1,8 +1,11 @@
 
 const TodoData = (props) => {
 
-    const { todoList } = props;
+    const { todoList, deleteTodo } = props;
 
+    const handleClick = (key) => {
+        deleteTodo(key)
+    }
     return (
         <div className="todo-data">
             {todoList.map((item, index) => {
@@ -10,7 +13,7 @@ const TodoData = (props) => {
                     <div className={`item-css`} key={item.id}>
                         <div>{item.name}</div>
                         <div>
-                            <button>Delete</button>
+                            <button onClick={() => { handleClick(item.id) }}>Delete</button>
                         </div>
                     </div>
                 );
