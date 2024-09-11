@@ -5,6 +5,7 @@ import logo from './assets/react.svg'
 import { useState } from 'react';
 import Header from './components/layout/header';
 import Footer from './components/layout/footer';
+import { Outlet } from 'react-router-dom';
 
 const App = () => {
 
@@ -28,6 +29,7 @@ const App = () => {
   }
   return (
     <>
+      <Outlet />
       <Header />
       <div className="todo-container">
         <TodoNew
@@ -47,7 +49,6 @@ const App = () => {
           </div>
         }
       </div>
-
       <Footer />
     </>
   );
