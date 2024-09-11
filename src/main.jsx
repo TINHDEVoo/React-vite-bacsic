@@ -11,11 +11,13 @@ import BookPage from './page/book.jsx';
 import UserPage from './page/user.jsx';
 import './style/layout.css'
 import TodoApp from './components/todo/todoapp.jsx';
+import ErrorPage from './page/error.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
