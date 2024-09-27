@@ -1,7 +1,8 @@
-import { Button, Input } from "antd"
+import { Button, Input, message, notification } from "antd"
 import { useState } from "react"
 import './user.form.css'
-import axios from "axios"
+import { createUserApi } from "../../service/api.services.js";
+
 
 const UserForm = () => {
     const [fullName, setFullName] = useState("");
@@ -9,15 +10,15 @@ const UserForm = () => {
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
 
-    const handleClick = () => {
-        const url_http = "http://localhost:8080/api/v1/user";
-        const data = {
-            fullName: fullName,
-            email: email,
-            password: password,
-            phone: phone
+    const handleClick = async () => {
+        const res = await createUserApi(fullName, email, password, phone)
+        if (res.data) {
+            notification.success({
+                message: "create User",
+                description: "Tạo user thành công"
+            })
         }
-        axios.post(url_http, data)
+        console.log(res)
     }
     return (
         <div className="form-user">
