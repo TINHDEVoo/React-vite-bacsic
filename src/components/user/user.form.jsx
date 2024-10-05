@@ -42,7 +42,9 @@ const UserForm = (props) => {
                 open={isModalOpen}
                 onOk={handleSubmit}
                 maskClosable={false}
-                onCancel={() => setIsModalOpen(false)}>
+                onCancel={() => setIsModalOpen(false)}
+                okText={"Create"}
+            >
                 <div className="form-user">
                     <div>
                         <label>FullName</label>
