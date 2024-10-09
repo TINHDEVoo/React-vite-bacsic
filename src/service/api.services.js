@@ -1,8 +1,8 @@
 import { Avatar } from "antd";
 import axios from "./axios.custom"
 
-const fetchAllUserAPI = () => {
-    const url_http = "/api/v1/user";
+const fetchAllUserAPI = (current, pageSize) => {
+    const url_http = `/api/v1/user?current=${current}&pageSize=${pageSize}`;
     return axios.get(url_http)
 }
 
