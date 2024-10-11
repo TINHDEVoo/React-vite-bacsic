@@ -10,6 +10,7 @@ export const AuthContent = createContext({
 })
 
 export const AuthWapper = (props) => {
+
     const [user, setUser] = useState({
         "email": "",
         "phone": "",
@@ -18,8 +19,9 @@ export const AuthWapper = (props) => {
         "avatar": "",
         "id": ""
     })
+    const [isLoading, setIsLoading] = useState(true)
     return (
-        <AuthContent.Provider value={{ user, setUser }}>
+        <AuthContent.Provider value={{ user, setUser, isLoading, setIsLoading }}>
             {props.children}
         </AuthContent.Provider>
     )

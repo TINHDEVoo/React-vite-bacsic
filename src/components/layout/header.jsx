@@ -1,12 +1,33 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useContext, useState } from 'react';
 import { AppstoreOutlined, LoginOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-import { Menu } from 'antd';
-import { AuthContent, AuthWapper } from '../content/auth.content';
+import { Menu, message } from 'antd';
+import { AuthContent } from '../content/auth.content';
+import { LogoutAPI } from '../../service/api.services';
 
 const Header = () => {
-    const [current, setCurrent] = useState('mail');
-    const { user } = useContext(AuthContent)
+    const { user, setUser } = useContext(AuthContent)
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        const res = await LogoutAPI()
+        if (res.data) {
+            localStorage.removeItem("access_token")
+            message.success("Logout thành công")
+            setUser(
+                {
+                    "email": "",
+                    "phone": "",
+                    "fullName": "",
+                    "role": "",
+                    "avatar": "",
+                    "id": ""
+                }
+            )
+            navigate("/")
+        }
+    }
+
     const items = [
         {
             label: <Link to={"/"}>Home</Link>,
@@ -35,18 +56,17 @@ const Header = () => {
             icon: <SettingOutlined />,
             children: [
 
-                { label: 'Đăng Xuất', key: 'Logout' },
+                {
+                    label: <span onClick={() => handleLogout()}>Đăng Xuất</span>,
+                    key: 'Logout'
+
+                },
             ]
         }] : []),
     ];
 
-    const onClick = (e) => {
-        console.log('click ', e);
-        setCurrent(e.key);
-    };
-
     return (
-        <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
+        <Menu mode="horizontal" items={items} />
     )
 }
 

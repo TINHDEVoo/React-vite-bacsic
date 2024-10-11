@@ -76,13 +76,23 @@ const LoginUserApi = (fullName, password) => {
     return axios.post(url_http, data)
 }
 
-const fetchserAPI = () => {
+const getAccoutAPI = () => {
     const url_http = "/api/v1/auth/account";
     return axios.get(url_http)
+}
+
+const LogoutAPI = () => {
+    const url_http = "/api/v1/auth/logout";
+    return axios.post(url_http)
+}
+
+const FetchAllBook = (current, pageSize) => {
+    const URL_HTTP = `/api/v1/book?current=${current}&pageSize=${pageSize}`;
+    return axios.get(URL_HTTP)
 }
 
 export {
     createUserApi, updateUserApi, fetchAllUserAPI, deleteUserApi,
     handleUploadAvatar, updateUserAvatar, RegisterUserApi, LoginUserApi,
-    fetchserAPI
+    getAccoutAPI, LogoutAPI, FetchAllBook
 }

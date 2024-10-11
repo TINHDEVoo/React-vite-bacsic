@@ -7,7 +7,7 @@ export default function ErrorPage() {
 
     return (
         <Result
-            status="403"
+            status="404"
             title="Oops!"
             subTitle="Sorry, an unexpected error has occurred."
             extra={<Button type="primary">  <Link to="/"><span>Back Home</span></Link></Button>}

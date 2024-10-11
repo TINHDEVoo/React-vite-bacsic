@@ -13,6 +13,7 @@ import './style/layout.css'
 import TodoApp from './components/todo/todoapp.jsx';
 import ErrorPage from './page/error.jsx';
 import { AuthWapper } from './components/content/auth.content.jsx';
+import PrivateRoute from './page/Private.Route.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/books",
-        element: <BookPage />
+        element: <PrivateRoute>
+          <BookPage />
+        </PrivateRoute>
       }
     ]
   },
