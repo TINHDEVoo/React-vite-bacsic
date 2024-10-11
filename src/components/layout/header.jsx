@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import React, { useContext, useState } from 'react';
+import { AppstoreOutlined, LoginOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
+import { AuthContent, AuthWapper } from '../content/auth.content';
 
 const items = [
     {
@@ -19,9 +20,25 @@ const items = [
         key: 'book',
         icon: <AppstoreOutlined />,
     },
+    {
+        label: "Cài Đặt",
+        key: "setting",
+        icon: <SettingOutlined />,
+        children: [
+            {
+                label: <Link to={"/login"}>Login</Link>,
+                key: "login",
+                icon: <LoginOutlined />
+            },
+            { label: 'Đăng Xuất', key: 'Logout' },
+        ]
+    }
 ];
 const Header = () => {
     const [current, setCurrent] = useState('mail');
+    const { user } = useContext(AuthContent)
+
+    console.log(user)
     const onClick = (e) => {
         console.log('click ', e);
         setCurrent(e.key);

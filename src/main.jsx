@@ -12,6 +12,7 @@ import UserPage from './page/user.jsx';
 import './style/layout.css'
 import TodoApp from './components/todo/todoapp.jsx';
 import ErrorPage from './page/error.jsx';
+import { AuthWapper } from './components/content/auth.content.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <AuthWapper>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </AuthWapper>
+  // </React.StrictMode>,
 )
