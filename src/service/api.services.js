@@ -75,7 +75,14 @@ const LoginUserApi = (fullName, password) => {
     }
     return axios.post(url_http, data)
 }
+
+const fetchserAPI = () => {
+    const url_http = "/api/v1/auth/account";
+    return axios.get(url_http)
+}
+
 export {
     createUserApi, updateUserApi, fetchAllUserAPI, deleteUserApi,
-    handleUploadAvatar, updateUserAvatar, RegisterUserApi, LoginUserApi
+    handleUploadAvatar, updateUserAvatar, RegisterUserApi, LoginUserApi,
+    fetchserAPI
 }
